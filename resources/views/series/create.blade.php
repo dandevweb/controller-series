@@ -19,11 +19,11 @@
                 @endif
             </div>
             <div class="col-span-2">
-                <label for="seasons">Eps/ Temporada:</label>
-                <input type="text" name="seasons" id="seasons" value="{{ old('seasons') }}"
+                <label for="episodes">Eps/ Temporada:</label>
+                <input type="text" name="episodes" id="episodes" value="{{ old('episodes') }}"
                     class="rounded-lg">
-                @if ($errors->has('seasons'))
-                    <div class="text-xs italic text-red-500">{{ $errors->first('seasons') }}</div>
+                @if ($errors->has('episodes'))
+                    <div class="text-xs italic text-red-500">{{ $errors->first('episodes') }}</div>
                 @endif
             </div>
         </div>

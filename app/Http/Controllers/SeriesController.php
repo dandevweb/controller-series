@@ -14,7 +14,8 @@ class SeriesController extends Controller
     {
         $series = Series::with('seasons')->get();
 
-        return view('series.index', compact('series'));
+        $success = session('success');
+        return view('series.index', compact('series', 'success'));
     }
 
     public function create()

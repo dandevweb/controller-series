@@ -15,6 +15,8 @@ class SeriesFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255|min:3',
+            'episodes' => 'required|integer|min:1',
+            'seasons' => 'required|integer|min:1',
         ];
     }
 }
