@@ -1,18 +1,21 @@
 <x-app-layout header="Séries" :$success>
     <a href="{{ route('series.create') }}"
-        class="inline-block px-4 py-3 mt-5 text-white bg-gray-700 rounded-lg">Adicionar</a>
+        class="mt-5 inline-block rounded-lg bg-gray-700 px-4 py-3 text-white">Adicionar</a>
 
-    <ul class="mt-10 space-y-4 text-left text-gray-500 border-2 divide-y-2 rounded-sm list-unstyled">
+    <ul class="list-unstyled mt-10 space-y-4 divide-y-2 rounded-sm border-2 text-left text-gray-500">
         @foreach ($series as $serie)
-            <li class="flex items-center justify-between w-full space-x-3 rtl:space-x-reverse">
+            <li class="flex w-full items-center justify-between space-x-3 rtl:space-x-reverse">
                 <a href="{{ route('seasons.index', $serie->id) }}">{{ $serie->name }}</a>
+                <div>
+                    <img class="w-20" src="{{ asset('storage/' . $serie->cover) }}" alt="">
+                </div>
                 <div class="flex items-center gap-4">
-                    <a class="px-4 py-2 text-white bg-yellow-400 rounded-lg"
+                    <a class="rounded-lg bg-yellow-400 px-4 py-2 text-white"
                         href="{{ route('series.edit', $serie) }}">Editar</a>
                     <form method="post" action="{{ route('series.destroy', $serie) }}">
                         @csrf
                         @method('delete')
-                        <button class="px-4 py-2 text-white bg-red-500 rounded-lg">Remover</button>
+                        <button class="rounded-lg bg-red-500 px-4 py-2 text-white">Remover</button>
                     </form>
                 </div>
             </li>

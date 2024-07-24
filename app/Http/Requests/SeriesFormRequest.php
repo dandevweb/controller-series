@@ -17,6 +17,7 @@ class SeriesFormRequest extends FormRequest
             'name' => 'required|string|max:255|min:3',
             'episodes' => 'required|integer|min:1',
             'seasons' => 'required|integer|min:1',
+            'cover' => 'nullable|image'
         ];
     }
 }

@@ -1,5 +1,5 @@
 <x-app-layout title="Criar Série">
-    <form method="post" action="{{ route('series.store') }}">
+    <form method="post" action="{{ route('series.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="grid grid-cols-12 gap-2">
             <div class="col-span-8">
@@ -27,7 +27,15 @@
                 @endif
             </div>
         </div>
+
+        <div class="grid grid-cols-12 gap-2">
+            <div class="col-span-12">
+                <label for="cover">Capa:</label>
+                <input type="file" name="cover" accept="image/png, image/gif, image/jpeg" />
+            </div>
+        </div>
+
         <button
-            class="flex justify-end px-4 py-2 mt-5 text-white bg-gray-700 rounded-lg">Salvar</button>
+            class="mt-5 flex justify-end rounded-lg bg-gray-700 px-4 py-2 text-white">Salvar</button>
     </form>
 </x-app-layout>

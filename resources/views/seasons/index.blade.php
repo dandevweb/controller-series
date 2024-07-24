@@ -6,6 +6,10 @@
                     Temporada {{ $season->number }}
                 </a>
 
+                <div class="flex justify-center">
+                    <img class="h-60" src="{{ asset('storage/' . $series->cover) }}" alt="">
+                </div>
+
                 <div class="items flex">
                     {{ $season->numberOfWatchedEpisodes() }} /
                     {{ $season->episodes->count() }}
