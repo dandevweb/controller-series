@@ -13,6 +13,9 @@ class Episode extends Model
 
     protected $guarded = ['id'];
     public $timestamps = false;
+    protected $casts = [
+        'watched' => 'boolean',
+    ];
 
     public function season(): BelongsTo
     {
