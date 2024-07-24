@@ -1,4 +1,4 @@
-<x-layout title="Criar Série">
+<x-app-layout title="Criar Série">
     <form method="post" action="{{ route('series.store') }}">
         @csrf
         <div class="grid grid-cols-12 gap-2">
@@ -28,6 +28,6 @@
             </div>
         </div>
         <button
-            class="mt-5 flex justify-end rounded-lg bg-gray-700 px-4 py-2 text-white">Salvar</button>
+            class="flex justify-end px-4 py-2 mt-5 text-white bg-gray-700 rounded-lg">Salvar</button>
     </form>
-</x-layout>
+</x-app-layout>

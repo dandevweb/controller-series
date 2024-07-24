@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Series;
+use App\Events\SeriesCreated;
+use Illuminate\Support\Facades\Mail;
 use App\Repositories\SeriesRepository;
 use App\Http\Requests\SeriesFormRequest;
 
@@ -25,7 +28,14 @@ class SeriesController extends Controller
 
     public function store(SeriesFormRequest $request)
     {
-      $series = $this->repository->add($request);
+        $series = $this->repository->add($request);
+
+        SeriesCreated::dispatch(
+            $series->name,
+            $series->id,
+            $request->seasons,
+            $request->episodes,
+        );
 
         return redirect()->route('series.index')
             ->with('success', "Série '{$series?->name}' criada com sucesso!");
